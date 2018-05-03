@@ -3,6 +3,7 @@ import os
 from flask import Flask, request, redirect, url_for, send_from_directory, render_template
 from data import Articles
 from test import animation
+import animate_spectrum
 
 app = Flask(__name__)
 
@@ -52,9 +53,9 @@ def uploaded_file(filename):
     filename = 'http://127.0.0.1:5000/uploads/' + filename
     return render_template('test.html', filename=filename)
 
-# @app.route('/uploads/<filename>')
-# def send_file(filename):
-#     return send_from_directory(UPLOAD_FOLDER, filename)
+@app.route('/uploads/<filename>')
+def send_file(filename):
+    return send_from_directory(UPLOAD_FOLDER, filename)
 
 
 # @app.route('/test')
