@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>About Nd doped crystals</h1>
+  <p>Neodymium (chemical symbol: Nd) is a chemical element belonging to the group of rare earth metals. In laser technology, it is widely used in the form of the trivalent ion Nd3+ as the laser-active dopant of gain media based on various host materials, including both crystals and glasses.
+
+The usual pump wavelength is 808 nm (for Nd:YAG; wavelengths for other host materials can somewhat differ), but a higher slope efficiency can be achieved by directly pumping into the upper laser level 4F3/2 with 869-nm light. The strongest laser transition is that from 4F3/2 to 4I11/2 for 1064 nm, but other transitions are available with longer or shorter wavelengths (see Figure 1). In order to achieve lasing on those, lasing at the 1064-nm line needs to be suppressed by inserting an appropriate wavelength filter (usually consisting of one or more dichroic mirrors) into the cavity. Via multi-phonon emission, the populations in levels 4I11/2 to 4I15/2 are quickly transferred to the ground-state manifold 4I9/2. (The lower-state lifetime is much smaller than the upper-state lifetime.) Hence, there is normally negligible population in all these levels, so that neodymium-doped gain media exhibit pure four-level behavior. The exception is the case where the lower level is the ground-state manifold 4I9/2: 946-nm Nd:YAG lasers (and other Nd-based lasers emitting between 900 and 1000 nm) are quasi-three-level lasers, exhibiting a fairly high threshold pump power.
+
+energy level structure of the trivalent neodymium ion in Nd^{3+}:YAG
+Figure 1: Energy level structure of the trivalent neodymium ion (with wavelength numbers for Nd:YAG).
+
+For high excitation densities, as can occur particularly in Q-switched lasers, but also in lasers operating on the weaker laser transitions, there can be significant energy losses due to energy transfer (→ upconversion) to higher-lying levels with small lifetimes.
+
+The most common neodymium-doped gain media are:
+
+Nd:YAG = Nd:Y3Al5O12 (yttrium aluminum garnet, → YAG lasers): the classical choice for 1064 nm, but also usable at 946 and 1319 nm (and a few other lines); isotropic; still very common particularly for high-power lasers and Q-switched lasers
+Nd:YVO4 (yttrium vanadate, → vanadate lasers) for 1064, 914 and 1342 nm: very high pump and laser cross sections and larger gain bandwidth, compared with Nd:YAG, hence particularly attractive for low-threshold lasers; also good properties for high-power operation with good beam quality (low dn / dT); birefringent
+Nd:YLF = Nd:YLiF4 (yttrium lithium fluoride → YLF lasers) for 1047 and 1053 nm: birefringent, long upper-state lifetime, weak thermal lensing; useful for, e.g., high-power Q-switched lasers
+Nd:glass: various glasses, mostly silicates and phosphates; often used for neodymium-doped optical fibers, e.g. in fiber lasers and amplifiers (→ laser crystals versus glasses)
+Less common neodymium-doped gain media are:
+
+Nd:GdVO4 (gadolinium vanadate) for 1064 and 1341 nm: similar to Nd:YVO4, but having a larger gain bandwidth
+Nd:GDD (gadolinium gallium garnet): used for high-power heat capacity lasers
+the tungstates Nd:KGW = Nd:KGd(WO4)2 and Nd:KYW = Nd:KY(WO4)2: birefringent, large gain bandwidth, large Raman cross sections
+Nd:YALO = Nd:YAlO3 for 1079 and 930 nm: birefringent
+Nd:YAP = Nd:YAlO3 for 1079 or 1340 nm: high thermal conductivity, birefringent
+Nd:LSB = Nd:LaSc3(BO3)4 for 1062, 905 and 1348 nm: birefringent; allows very high neodymium concentration
+Nd:S-FAP = Nd:Sr5(PO4)3F for 1059, 923 and 1328 nm: birefringent
+In all these media (except for some glasses), the neodymium dopant ions replace other ions (often yttrium) of the host medium, which have about the same size.
+
+Neodymium-doped gain media face competition from ytterbium-doped media in the 1-μm spectral region. The latter have a smaller quantum defect, usually a higher emission bandwidth and a higher upper-state lifetime, also a simpler energy level structure which avoids various quenching processes. However, they exhibit quasi-three-level behavior, which tends to lead to a higher threshold, so that the power efficiency is not necessarily better than for neodymium-doped media.</p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Test</h1>
+    {% if filename %}
+      <img src="{{filename}}">
+    {% else %}
+      <h1>Choose Absorption spectra</h1>
+      <button type="button" class="btn btn-secondary">Nd:BEL</button>
+      <button type="button" class="btn btn-secondary">Nd:BaY2F8</button>
+      <button type="button" class="btn btn-secondary">Nd:Y2O3</button>
+    {% endif %}
+{% endblock %}
