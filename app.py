@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 Articles = Articles()
 
-@app.route('/')
-def index():
-    #test.readData("./data.ndbay.txt")
-    return render_template('home.html')
+# @app.route('/')
+# def index():
+#     #test.readData("./data.ndbay.txt")
+#     return render_template('home.html')
 
 @app.route('/about')
 def about():
@@ -27,14 +27,15 @@ def article(id):
 
 
 UPLOAD_FOLDER = './'
-
 @app.route('/test', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
         if file:
             filename = file.filename
-            print('myfile', filename, UPLOAD_FOLDER)
+            print('myfile', file)
+
+            #file.save(os.path.join(app.config['./'], filename))
             return redirect(url_for('uploaded_file', filename=filename))
     return render_template('test.html')
     # return '''
@@ -51,6 +52,15 @@ def uploaded_file(filename):
     filename = 'http://127.0.0.1:5000/uploads/' + filename
     return render_template('test.html', filename=filename)
 
+# @app.route('/uploads/<filename>')
+# def send_file(filename):
+#     return send_from_directory(UPLOAD_FOLDER, filename)
+
+
+# @app.route('/test')
+# def testPage():
+#     #return render_template('test.html')
+#     return render_template('test.html', image = 'animation.gif')
 #
 # @app.route('/test/image')
 # def drawGif():
