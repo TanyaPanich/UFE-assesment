@@ -30,6 +30,10 @@ $(document).ready(() => {
     e.preventDefault()
     const formData = new FormData($(this)[0]);
     console.log('Show button clicked', formData)
+    const title = $('#chartTitle').val()
+    const xLabel = $('#xLabel').val()
+    const yLabel = $('#yLabel').val()
+    console.log("values: ", title, xLabel, yLabel)
     $.ajax({
       url: 'spectra/show',
       type: 'POST',

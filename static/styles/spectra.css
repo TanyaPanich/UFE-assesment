@@ -2,6 +2,7 @@
   padding: 2rem 2rem;
   background-color: #84a7cae6;
 }
+
 row {
   align-items: center;
 }
@@ -11,23 +12,38 @@ row {
   color: white;
   border: solid #0062cc 1px;
 }
+
 #choose {
   text-align: left;
 }
+
 div#all {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
+
+div#input {
+  flex:1;
+  margin: 0.5rem 2rem;
+  align-items: center;
+}
+
 div#left {
   flex:1;
-  margin-right: 5rem;
+  padding: 0rem 0.5rem;
 }
+
 div#right {
   flex:1;
+  margin-right: 2rem;
+  padding: 0rem 0.5rem;
 }
+
 div#divShow {
   align-items: center;
 }
+
 button#show {
   width: 80%;
   background-color: #0062cc;
@@ -41,14 +57,22 @@ input#points {
 input#time {
    width: 80% !important;
 }
+
 div#plotImgLabel {
   width: 90%;
   margin-right: 5%;
   margin-left: 5%;
 }
+
 #textInputPoints {
   color: #0062cc;
 }
+
 #textInputTime {
   color: #0062cc;
+}
+
+div#selectedFiles {
+  color: #0062cc;
+  padding: 0rem 2rem;
 }

@@ -11,15 +11,21 @@ div.w3-panel.w3-leftbar {
   font-weight: bold;
   color: #006eff;
 }
+
+div#quatation {
+  width: 70%;
+}
+
 div#images {
   display: flex;
   flex-direction: row;
   margin: 2rem;
+  justify-content: center;
 
 }
-div#funWithFlags{
+div#funWithFlags {
   flex: 1;
 }
-div#funWithCharts{
+div#funWithCharts {
   flex: 1;
 }
