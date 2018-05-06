@@ -1,8 +1,35 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <div class="jumbotron text-center">
-    <h1>Absorption spectra</h1>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<link rel='stylesheet' href='../static/styles/home.css'>
+
+  <h1 class="text-center">Matplotlib and NumPy are cool</h1>
+
+  <div class="container">
+    <ul>
+      <li>
+        <p>
+          <span class="bold">Matplotlib</span> tries to make easy things easy and hard things possible.
+          You can generate plots, histograms, power spectra, bar charts, errorcharts, scatterplots, etc., with just a few lines of code.
+        </p>
+      </li>
+      <li>
+        <p>
+          <span class="bold">NumPy</span> is the fundamental package for scientific computing with Python.
+        </p>
+          <div class="w3-panel w3-leftbar">
+            <p class="w3-xlarge w3-serif"><i>"Python is a wrapper for NumPy"</i></p>
+            <p>Alicia M F Key</p>
+          </div>
+      </li>
+    </ul>
   </div>
+  <div id="images">
+  <div id="funWithFlags">
+    <img src="static/images/funwithflags.jpg" alt="funwithflags" style="width:400px">
+  </div>
+  <div id="funWithCharts">
+    <img src="static/images/funwithcharts.jpg" alt="funwithcharts" style="width:400px">
+  </div>
+</div>
 {% endblock %}

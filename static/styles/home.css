@@ -1,0 +1,25 @@
+div.container {
+  padding: 0.5rem auto !important;
+}
+
+div.w3-panel.w3-leftbar {
+  padding: 1rem;
+  background-color: #007bff36;
+}
+
+.bold {
+  font-weight: bold;
+  color: #006eff;
+}
+div#images {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+
+}
+div#funWithFlags{
+  flex: 1;
+}
+div#funWithCharts{
+  flex: 1;
+}

@@ -1,18 +1,42 @@
 # from flask import Flask, render_template
 import os
-from flask import Flask, request, redirect, url_for, send_from_directory, render_template
+import hashlib
+from flask import Flask, jsonify, request, redirect, url_for, send_file, send_from_directory, render_template
 from data import Articles
-from test import animation
-import animate_spectrum
+from spectraplot import animation
 
 app = Flask(__name__)
 
 Articles = Articles()
 
-# @app.route('/')
-# def index():
-#     #test.readData("./data.ndbay.txt")
-#     return render_template('home.html')
+def content_type_error(item):
+    return jsonify(error="Unsupported Content Type %s" % item.content_type), 415
+
+def create_gif(filenames, samples, durationSec):
+    hasher = hashlib.md5()
+    #samples is int, but update can recieve only bytes
+    #here we update hasher with values from sliders:
+    hasher.update(str(samples).encode())
+    hasher.update(str(durationSec).encode())
+    #now we again update hasher with content of each file:
+    for filename in filenames:
+        print('Hashing', filename)
+        hasher.update(open(filename, "r").read().encode())
+    output_file = 'static/images/plot.%s.gif' % hasher.hexdigest()
+    print('Output hash-based filename created:', output_file)
+    if not os.path.isfile(output_file):
+        anim = animation(filenames, samples, durationSec * 1000)
+        print('Animation created')
+        anim.save(output_file, writer='imagemagick', fps=24)
+        print('Animation saved')
+    else:
+        print('Animation exists')
+    return output_file
+
+@app.route('/')
+def index():
+    #test.readData("./data.ndbay.txt")
+    return render_template('home.html')
 
 @app.route('/about')
 def about():
@@ -26,52 +50,33 @@ def articles():
 def article(id):
     return render_template('article.html', id = id)
 
+@app.route('/spectra')
+def spectrum_page():
+    return render_template("spectra.html")
 
-UPLOAD_FOLDER = './'
-@app.route('/test', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file:
-            filename = file.filename
-            print('myfile', file)
+@app.route('/spectra/show', methods=['POST'])
+def generate_gif():
+    print('imagepage: form', request.form)
+    print('imagepage: files', request.files)
+    inputFiles = request.files.getlist('inputFiles')
+    print('imagepage: inputFiles', inputFiles)
+    filenames = []
+    for item in inputFiles:
+        print('  filename:%s, content_type:%s, name:%s, mimetype:%s' %
+         (item.filename,item.content_type,item.name,item.mimetype))
+        #we check content type, must be only txt
+        if item.content_type != 'text/plain':
+            return content_type_error(item)
+        #we create filename and add to it index
+        filename = './db/temp/data%s.txt' % len(filenames)
+        filenames.append(filename)
+        item.save(filename)
+    # generate gif (or default)
+    points = int(request.form.get('points'))
+    time = int(request.form.get('time'))
+    output_file = create_gif(filenames, points, time) if filenames else "static/images/sample2.jpg"
+    return jsonify(image=output_file)
 
-            #file.save(os.path.join(app.config['./'], filename))
-            return redirect(url_for('uploaded_file', filename=filename))
-    return render_template('test.html')
-    # return '''
-    # <!doctype html>
-    # <title>Upload new File</title>
-    # <h1>Upload new File</h1>
-    # <form action="" method=post enctype=multipart/form-data>
-    #   <p><input type=file name=file>
-    #      <input type=submit value=Upload>
-    # </form>
-    # '''
-@app.route('/show/<filename>')
-def uploaded_file(filename):
-    filename = 'http://127.0.0.1:5000/uploads/' + filename
-    return render_template('test.html', filename=filename)
-
-@app.route('/uploads/<filename>')
-def send_file(filename):
-    return send_from_directory(UPLOAD_FOLDER, filename)
-
-
-# @app.route('/test')
-# def testPage():
-#     #return render_template('test.html')
-#     return render_template('test.html', image = 'animation.gif')
-#
-# @app.route('/test/image')
-# def drawGif():
-#     anim = animation("./data.ndbay.txt")
-#     # TODO: How to convert anim to gif?
-#     img = StringIO()
-#     #fig.savefig(img)
-#     #img.seek(0)
-#
-#     # return send_file(img, mimetype='image/gif')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,54 @@
+.jumbotron {
+  padding: 2rem 2rem;
+  background-color: #84a7cae6;
+}
+row {
+  align-items: center;
+}
+
+#uploadFile {
+  background-color: #0062cc;
+  color: white;
+  border: solid #0062cc 1px;
+}
+#choose {
+  text-align: left;
+}
+div#all {
+  display: flex;
+  flex-direction: column;
+}
+div#left {
+  flex:1;
+  margin-right: 5rem;
+}
+div#right {
+  flex:1;
+}
+div#divShow {
+  align-items: center;
+}
+button#show {
+  width: 80%;
+  background-color: #0062cc;
+  margin: 3% 10%;
+}
+
+input#points {
+  width: 80% !important;
+}
+
+input#time {
+   width: 80% !important;
+}
+div#plotImgLabel {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+#textInputPoints {
+  color: #0062cc;
+}
+#textInputTime {
+  color: #0062cc;
+}

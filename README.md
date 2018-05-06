@@ -1,2 +1,2 @@
 # UFE-assesment
-Python Flask Matplotlib for data visualization and animation
+Python Flask Matplotlib - Fun with Charts

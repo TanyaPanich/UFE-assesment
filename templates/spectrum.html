@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% if filename %}
+      <h1>Absorption spectra</h1>
+      <img src="{{animation}}">
+    {% else %}
+      <h1>Choose Crystal</h1>
+    {% endif %}
+    <form id="ndButtons">
+      <label><input id="ndbel" name="options" class="option-input radio" type="radio" checked>Nd:BEL</label>
+      <label><input id="ndbay2f8" name="options" class="option-input radio" type="radio">Nd:BaY2F8</label>
+      <!-- <button id="ndbel" type="button" class="btn btn-secondary">Nd:BEL</button>
+      <button id="ndbay2f8" type="button" class="btn btn-secondary">Nd:BaY2F8</button> -->
+      <div>
+        <button id="ndy2o3" type="button" class="btn btn-secondary">Nd:Y2O3</button>
+        <button id="ndyag" type="button" class="btn btn-secondary">Nd:YAG</button>
+        <button id="ndyvo4" type="button" class="btn btn-secondary">Nd:YVO4</button>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+{% endblock %}
+<script src="feSpectrum.js"></script>
