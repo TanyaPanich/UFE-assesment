@@ -1,3 +1,4 @@
+from os.path import basename
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,11 +36,8 @@ def flatten(list_of_lists):
     return result
 
 # handles multiple files
-def animation(filenames, samples=100, durationMs=10000, extraDelayMs=4000):
-    plt.title('Absorption spectrum')
-    plt.xlabel('nm')
-    plt.ylabel('cm2_1.0e_20')
-
+def animation(filenames, samples=100, durationMs=10000, extraDelayMs=4000,
+              chartTitle="Your are in hell", xLabel="heat", yLabel="pain"):
     interval = int(durationMs / samples)
     extra_samples = int(extraDelayMs / interval)
     # Read data from all files into list of datasets.
@@ -52,10 +50,15 @@ def animation(filenames, samples=100, durationMs=10000, extraDelayMs=4000):
     all_y_axis = flatten([data[1] for data in data_sets])
     ax.set_xlim((min(all_x_axis), max(all_x_axis)))
     ax.set_ylim((min(all_y_axis), max(all_y_axis)))
+    ax.set_title(chartTitle)
+    ax.set_xlabel(xLabel)
+    ax.set_ylabel(yLabel)
 
     # generate inital lines. - creates empty graph - will be updates every time (samples)
     # data sets - hown many files we have
-    lines = [ax.plot([], [], lw=2)[0] for _ in data_sets]
+    lines = [ax.plot([], [], lw=2, label=basename(filename))[0] for filename in filenames]
+    ax.legend()
+
     # start rendering
     return FuncAnimation(fig=fig,
                          func=animateFunc(lines, data_sets),

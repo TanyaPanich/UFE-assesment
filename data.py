@@ -2,24 +2,39 @@ def Articles():
     articles = [
         {
             'id': 1,
-            'title': 'Article One',
-            'body': 'Neodim is cool',
-            'author': 'Larisa Grigorjevna',
-            'created_date': '05-05-2003'
+            'title': 'Crystals data',
+            'author': 'NASA',
+            'link' : 'https://lasersdb.larc.nasa.gov/absorption.php'
         },
         {
             'id': 2,
-            'title': 'Article Two',
-            'body': 'Neodim is cool and expensive',
-            'author': 'Tomas Miller',
-            'created_date': '05-10-2004'
+            'title': 'Matplotlib tutorial',
+            'author': 'Matplotlib',
+            'link' : 'https://matplotlib.org/users/pyplot_tutorial.html'
         },
         {
             'id': 3,
-            'title': 'Article Three',
-            'body': 'Neodim is not very good',
-            'author': 'Anatoly Sharakovsky',
-            'created_date': '05-15-2005'
+            'title': 'Passing a matplotlib figure to HTML (flask)',
+            'author': 'Miguel',
+            'link' : 'https://stackoverflow.com/questions/20107414/passing-a-matplotlib-figure-to-html-flask'
+        },
+        {
+            'id': 4,
+            'title': 'Numpy tutorial',
+            'author': 'Numpy',
+            'link' : 'https://docs.scipy.org/doc/numpy/user/quickstart.html'
+        },
+        {
+            'id': 5,
+            'title': 'Flask app tutorial',
+            'author': 'Brad Traversity',
+            'link' : 'https://www.youtube.com/watch?v=zRwy8gtgJ1A'
+        },
+        {
+            'id': 6,
+            'title': 'Radiation defects in undoped and Nd-doped LaGaO3 crystals',
+            'author': 'T. Dudareva, L. Grigorjevna, D. Millers',
+            'link' : 'https://www.researchgate.net/publication/243588643_Radiation_defects_in_undoped_and_Nd-doped_LaGaO3_crystals'
         }
     ]
     return articles
